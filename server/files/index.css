@@ -1,77 +1,374 @@
 @import url(base.css);
 
-h1 {
-  font-size: 200%;
-  margin: 8px 0px;
+body {
+  font-family: Arial, sans-serif;
+  background:
+    linear-gradient(rgba(245, 247, 255, 0.8), rgba(229, 234, 251, 0.8)),
+    url("https://thumbs.dreamstime.com/b/seamless-pattern-colorful-movie-design-elements-cinema-icons-background-film-symbols-vintage-style-hand-drawn-199818083.jpg?w=768") center top / 420px auto repeat,
+    radial-gradient(circle at top left, #f5f7ff 0%, #eef2ff 42%, #e5eafb 100%);
+  margin: 0;
+  padding: 28px 20px;
+  color: #1f2340;
+  min-height: 100vh;
 }
 
-/* Constrain the page to the viewport */
-html, body {
-  height: 100vh;
+article {
+  background: linear-gradient(145deg, #ffffff 0%, #f8faff 100%);
+  border-radius: 18px;
+  margin: 0 auto 10px auto;
+  padding: 13px;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 10px 24px rgba(31, 35, 64, 0.12);
+  max-width: 980px;
+  border: 1px solid #d9def7;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
 }
 
-/* Center the nav's header and list */
-nav {
+.movie-content {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.movie-details {
+  flex: 1;
+  min-width: 0;
+  background: linear-gradient(180deg, #edf1ff 0%, #dde5ff 100%);
+  border: 1px solid #d4dcfb;
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.movie-meta {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(95, 120, 211, 0.22);
+  display: grid;
+  gap: 8px;
+}
+
+.movie-poster {
+  flex-shrink: 0;
+  background: linear-gradient(180deg, #edf1ff 0%, #dde5ff 100%);
+  border: 1px solid #d4dcfb;
+  border-radius: 16px;
+  padding: 7px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  min-height: 100%;
 }
 
-/* navigation buttons have full width */
+img {
+  width: 170px;
+  height: 255px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  box-shadow: 0 10px 18px rgba(31, 35, 64, 0.18);
+}
+
+header h1 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  color: #2f3f8f;
+  line-height: 1.1;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+article h1 {
+  margin-top: 0;
+  margin-bottom: 6px;
+  color: #2f3f8f;
+  line-height: 1.1;
+  font-size: 1.75rem;
+  text-align: left;
+}
+
+p {
+  line-height: 1.55;
+  margin: 4px 0;
+  font-size: 0.92rem;
+}
+
+.movie-synopsis {
+  margin-top: 6px;
+  padding: 8px 10px;
+  background: linear-gradient(180deg, rgba(194, 206, 247, 0.58) 0%, rgba(181, 195, 241, 0.7) 100%);
+  border: 1px solid rgba(102, 123, 205, 0.22);
+  border-radius: 14px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.movie-meta p {
+  background: rgba(255, 255, 255, 0.38);
+  border: 1px solid rgba(116, 137, 214, 0.16);
+  border-radius: 12px;
+  padding: 10px 12px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+strong {
+  color: #2a3170;
+}
+
+span {
+  margin-right: 6px;
+}
+
+.genre {
+  background: linear-gradient(180deg, #f7f0df 0%, #efe4c9 100%);
+  padding: 5px 10px;
+  border-radius: 999px;
+  margin-right: 6px;
+  display: inline-block;
+  margin-bottom: 6px;
+  color: #6e5a2a;
+  border: 1px solid #dfd0aa;
+  box-shadow: 0 2px 4px rgba(130, 110, 60, 0.08);
+}
+
+article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 30px rgba(31, 35, 64, 0.18);
+}
+
+button {
+  margin-top: 18px;
+  padding: 7px 10px;
+  border: 1px solid #7f95e6;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #7f95e6 0%, #6880d8 100%);
+  color: #ffffff;
+  box-shadow: 0 5px 12px rgba(72, 95, 180, 0.22);
+  cursor: pointer;
+  font-weight: 600;
+  align-self: center;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  background: linear-gradient(180deg, #738ae0 0%, #5f78d3 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(72, 95, 180, 0.28);
+}
+
+header {
+  grid-area: h;
+  padding: 0 0 24px 0;
+}
+
+nav {
+  grid-area: n;
+  margin-bottom: 24px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 nav button {
+  margin-top: 0;
   width: 100%;
+  padding: 8px 12px;
+  font-size: 0.98rem;
+  border-radius: 8px;
 }
 
-/* Remove unnecessary space and bullets from the lists */
-ul {
-  padding: 0px;
-  margin: 16px;
-  list-style-type: none;
+.genre-toggle {
+  width: 100%;
+  background: linear-gradient(180deg, #f7f0df 0%, #efe4c9 100%);
+  color: #6e5a2a;
+  border: 1px solid #dfd0aa;
+  box-shadow: 0 5px 12px rgba(130, 110, 60, 0.14);
 }
 
-/* Task 2.1. Lay out the childs of the 'body' using Grid Template Areas. */
+.genre-toggle:hover {
+  background: linear-gradient(180deg, #f4ead4 0%, #ebddb8 100%);
+  color: #6e5a2a;
+  box-shadow: 0 8px 16px rgba(130, 110, 60, 0.18);
+}
 
+.genre-list {
+  margin-top: 8px;
+}
+
+.genre-list[hidden] {
+  display: none;
+}
+
+main {
+  grid-area: m;
+  overflow-y: auto;
+  scrollbar-color: #6880d8 #dfe5fb;
+}
+
+main::-webkit-scrollbar {
+  width: 12px;
+}
+
+main::-webkit-scrollbar-track {
+  background: #dfe5fb;
+  border-radius: 999px;
+}
+
+main::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #7f95e6 0%, #6880d8 100%);
+  border-radius: 999px;
+  border: 2px solid #dfe5fb;
+}
+
+main::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #738ae0 0%, #5f78d3 100%);
+}
+
+footer {
+  grid-area: f;
+  min-height: 24px;
+}
+
+footer p {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  header h1,
+  article h1 {
+    font-size: 2.1rem;
+  }
+}
+
+@media (max-width: 760px) {
+  body {
+    padding: 18px 12px;
+  }
+
+  article {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .movie-content {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .movie-details {
+    padding: 16px;
+  }
+
+  .movie-poster {
+    flex-shrink: 0;
+    align-self: stretch;
+    min-height: 100%;
+    padding: 10px;
+  }
+
+  img {
+    width: 110px;
+    height: 165px;
+  }
+
+  button {
+    margin-top: 10px;
+    padding: 8px 12px;
+  }
+
+  header h1,
+  article h1 {
+    font-size: 1.6rem;
+  }
+
+  p {
+    font-size: 0.96rem;
+  }
+}
 
 /* Task 3.1. Make the header element a flex container and center its children
    vertically and horizontally.
  */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 
 /* Task 3.2. Make the list items of the unordered list in the nav element a flex container, 
    use column direction and center the child items
  */
 
+nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+nav li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 /* Task 3.3. Make the main element a Flexbox container */
+
+main {
+  display: flex;
+  flex-direction: column;
+}
 
 
 /* Task 3.4. Make the footer's ul a Flexbox container */
 
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 /* From here on styling from exercise 1 */
-img {
-  border-radius: 12px;
-}
 
-article {
-  background-color: lightgray;
-  border-radius: 16px;
-  padding: 16px;
-  width: 384px;
-  margin: 8px;
-}
+@media (min-width: 900px) {
+  body {
+    display: grid;
+    grid-template-columns: minmax(24px, 1fr) 220px minmax(0, 980px) minmax(24px, 1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      ". h h ."
+      ". n m ."
+      ". f f .";
+    column-gap: 18px;
+    row-gap: 24px;
+    height: 100vh;
+    padding: 24px;
+  }
 
-a {
-  color: beige;
-}
+  header {
+    padding: 0;
+  }
 
-span {
-  margin-right: 4px;
-}
+  nav {
+    margin-bottom: 0;
+  }
 
-.genre {
-  padding: 4px 8px;
-  border: solid black 1px;
-  border-radius: 6px;
-  background-color: darkgray;
-  font-weight: bold;
+  main {
+    min-height: 0;
+    width: 100%;
+  }
 }
