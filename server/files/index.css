@@ -1,5 +1,13 @@
 @import url(base.css);
 
+html {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, sans-serif;
   background:
@@ -9,7 +17,17 @@ body {
   margin: 0;
   padding: 28px 20px;
   color: #1f2340;
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "h"
+    "n"
+    "m"
+    "f";
+  gap: 18px;
 }
 
 article {
@@ -161,12 +179,12 @@ button:hover {
 
 header {
   grid-area: h;
-  padding: 0 0 24px 0;
+  padding: 0;
 }
 
 nav {
   grid-area: n;
-  margin-bottom: 24px;
+  margin-bottom: 0;
 }
 
 nav ul {
@@ -207,6 +225,7 @@ nav button {
 
 main {
   grid-area: m;
+  min-height: 0;
   overflow-y: auto;
   scrollbar-color: #6880d8 #dfe5fb;
 }
@@ -346,7 +365,6 @@ footer {
 
 @media (min-width: 900px) {
   body {
-    display: grid;
     grid-template-columns: minmax(24px, 1fr) 220px minmax(0, 980px) minmax(24px, 1fr);
     grid-template-rows: auto minmax(0, 1fr) auto;
     grid-template-areas:
@@ -355,20 +373,10 @@ footer {
       ". f f .";
     column-gap: 18px;
     row-gap: 24px;
-    height: 100vh;
     padding: 24px;
   }
 
-  header {
-    padding: 0;
-  }
-
-  nav {
-    margin-bottom: 0;
-  }
-
   main {
-    min-height: 0;
     width: 100%;
   }
 }
